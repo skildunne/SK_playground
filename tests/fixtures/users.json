@@ -1,0 +1,30 @@
+[
+    {
+        "id": "user_valid",
+        "email": "valid.user@example.com",
+        "password": "Password123!",
+        "name": "Valid User",
+        "bio": "I am a valid user.",
+        "phone": "+15550101"
+    },
+    {
+        "id": "user_invalid",
+        "email": "invalid.user@example.com",
+        "password": "wrongpassword",
+        "name": "Invalid User"
+    },
+    {
+        "id": "user_update",
+        "email": "update.user@example.com",
+        "password": "Password123!",
+        "name": "Update Me",
+        "bio": "Old Bio",
+        "phone": "+15550102"
+    },
+    {
+        "id": "user_delete",
+        "email": "delete.me@example.com",
+        "password": "Password123!",
+        "name": "Delete Me"
+    }
+]
