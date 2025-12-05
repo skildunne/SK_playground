@@ -1,4 +1,4 @@
-import { test, expect } from '@playwright/test';
+import { test, expect } from '../utils/healing-fixture';
 
 test.describe('SK_Playground Scenarios', () => {
     const baseURL = 'http://www.uitestingplayground.com';

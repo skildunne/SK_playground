@@ -10,7 +10,7 @@ const MAX_RETRIES = 3;
 function runTests(): { success: boolean; output: string; healed: boolean } {
     try {
         console.log("Running Playwright tests...");
-        execSync('npx playwright test tests/profile/crud.spec.ts', { stdio: 'pipe', encoding: 'utf-8' });
+        execSync('npx playwright test tests/SK_Playground/scenarios.spec.ts', { stdio: 'pipe', encoding: 'utf-8' });
         return { success: true, output: "", healed: false };
     } catch (error: any) {
         const output = error.stdout + '\n' + error.stderr;
