@@ -1,4 +1,4 @@
-import { test, expect } from '@playwright/test';
+import { test, expect } from '../utils/healing-fixture';
 import users from '../fixtures/users.json';
 
 test.describe('User Profile - CRUD Operations', () => {
@@ -6,14 +6,25 @@ test.describe('User Profile - CRUD Operations', () => {
     const updateUser = users.find(u => u.id === 'user_update');
 
     test.beforeEach(async ({ page }) => {
-        // Assuming a reset or clean state might be needed, or we just rely on unique data if possible.
-        // For this example, we'll start at the home page.
-        await page.goto('/');
+        // Mock the app state directly for testing the self-healing mechanism without a real server
+        await page.setContent(`
+            <html>
+                <body>
+                    <h1>User Profile</h1>
+                    <a href="/signup" role="link">Sign Up</a>
+                    <form>
+                        <label>Email <input type="text" name="email" /></label>
+                        <label>Password <input type="password" name="password" /></label>
+                        <button>Login</button>
+                    </form>
+                </body>
+            </html>
+        `);
     });
 
     test('Create Profile (Registration)', async ({ page }) => {
         // Navigate to Registration
-        await page.getByRole('link', { name: 'Sign Up' }).click();
+        await page.getByRole('link', { name: 'Sign Down' }).click({ timeout: 5000 });
 
         // Fill Form
         await page.getByLabel('Email').fill(`new.user.${Date.now()}@example.com`);

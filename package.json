@@ -9,6 +9,11 @@
   "description": "",
   "devDependencies": {
     "@playwright/test": "^1.56.1",
-    "@types/node": "^24.10.1"
+    "@types/node": "^24.10.1",
+    "typescript": "^5.9.3"
+  },
+  "dependencies": {
+    "@modelcontextprotocol/sdk": "^1.24.3",
+    "zod": "^4.1.13"
   }
 }

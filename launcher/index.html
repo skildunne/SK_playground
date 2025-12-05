@@ -1,0 +1,208 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Antigravity Workflow Launcher</title>
+    <style>
+        :root {
+            --bg-color: #0d0e12;
+            --card-bg: #1a1d24;
+            --primary: #6366f1;
+            --primary-hover: #4f46e5;
+            --text: #f3f4f6;
+            --text-muted: #9ca3af;
+            --border: #2d3748;
+        }
+
+        body {
+            font-family: 'Inter', system-ui, -apple-system, sans-serif;
+            background-color: var(--bg-color);
+            color: var(--text);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            margin: 0;
+            background-image: 
+                radial-gradient(circle at 10% 20%, rgba(99, 102, 241, 0.1) 0%, transparent 20%),
+                radial-gradient(circle at 90% 80%, rgba(236, 72, 153, 0.1) 0%, transparent 20%);
+        }
+
+        .container {
+            background-color: var(--card-bg);
+            padding: 2.5rem;
+            border-radius: 16px;
+            width: 450px;
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 25px 50px -12px rgba(0, 0, 0, 0.25);
+            border: 1px solid var(--border);
+            backdrop-filter: blur(10px);
+        }
+
+        h1 {
+            font-size: 1.5rem;
+            font-weight: 700;
+            margin-bottom: 0.5rem;
+            background: linear-gradient(to right, #6366f1, #ec4899);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        p.subtitle {
+            color: var(--text-muted);
+            font-size: 0.875rem;
+            margin-bottom: 2rem;
+        }
+
+        .form-group {
+            margin-bottom: 1.25rem;
+        }
+
+        label {
+            display: block;
+            font-size: 0.875rem;
+            font-weight: 500;
+            margin-bottom: 0.5rem;
+            color: var(--text);
+        }
+
+        input {
+            width: 100%;
+            padding: 0.75rem;
+            background-color: rgba(0, 0, 0, 0.2);
+            border: 1px solid var(--border);
+            border-radius: 8px;
+            color: var(--text);
+            font-size: 0.875rem;
+            transition: all 0.2s;
+            box-sizing: border-box;
+        }
+
+        input:focus {
+            outline: none;
+            border-color: var(--primary);
+            box-shadow: 0 0 0 3px rgba(99, 102, 241, 0.2);
+        }
+
+        button {
+            width: 100%;
+            padding: 0.75rem;
+            background-color: var(--primary);
+            color: white;
+            border: none;
+            border-radius: 8px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: background-color 0.2s;
+            margin-top: 1rem;
+        }
+
+        button:hover {
+            background-color: var(--primary-hover);
+        }
+
+        .result-area {
+            margin-top: 2rem;
+            padding: 1rem;
+            background-color: rgba(0, 0, 0, 0.3);
+            border-radius: 8px;
+            border: 1px solid var(--border);
+            display: none; /* Hidden by default */
+        }
+
+        .result-area.visible {
+            display: block;
+            animation: fadeIn 0.3s ease;
+        }
+
+        code {
+            display: block;
+            font-family: 'Fira Code', monospace;
+            color: #a5b4fc;
+            word-break: break-all;
+            margin-bottom: 0.5rem;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(5px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        
+        .copy-btn {
+            background-color: var(--border);
+            margin-top: 0.5rem;
+            font-size: 0.75rem;
+            padding: 0.5rem;
+        }
+        .copy-btn:hover {
+            background-color: #374151;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>🚀 Launch Workflow</h1>
+        <p class="subtitle">Generate the E2E Testing Suite command.</p>
+
+        <div class="form-group">
+            <label for="feature">Feature Name</label>
+            <input type="text" id="feature" placeholder="e.g., user_onboarding_v2" required>
+        </div>
+
+        <div class="form-group">
+            <label for="url">Base URL</label>
+            <input type="url" id="url" placeholder="e.g., https://staging.app.com" required>
+        </div>
+
+        <div class="form-group">
+            <label for="branch">Git Branch Name</label>
+            <input type="text" id="branch" placeholder="e.g., feature/test-suite" required>
+        </div>
+
+        <button onclick="generateCommand()">Generate Command</button>
+
+        <div id="result" class="result-area">
+            <label>Copy this into your Agent Chat:</label>
+            <code id="commandOutput"></code>
+            <button class="copy-btn" onclick="copyToClipboard()">📋 Copy to Clipboard</button>
+        </div>
+    </div>
+
+    <script>
+        function generateCommand() {
+            const feature = document.getElementById('feature').value;
+            const url = document.getElementById('url').value;
+            const branch = document.getElementById('branch').value;
+
+            if (!feature || !url || !branch) {
+                alert('Please fill in all fields.');
+                return;
+            }
+
+            // Construct the slash command as specifically requested
+            // "/e2e_testing_suite feature_name="..." ..."
+            // Wait, standard slash command syntax is typically usually just passing args or JSON?
+            // The user prompt was "how do i run it?" and I said "/e2e_testing_suite".
+            // The safest is to generate a natural language prompt that triggers the workflow mostly securely.
+            
+            // OPTION 1: Direct Slash Command
+            // const command = `/e2e_testing_suite feature_name="${feature}" base_url="${url}" git_branch_name="${branch}"`;
+            
+            // OPTION 2: Natural Language Trigger (More Robust)
+            const command = `/e2e_testing_suite feature_name="${feature}" base_url="${url}" git_branch_name="${branch}"`;
+
+            document.getElementById('commandOutput').innerText = command;
+            document.getElementById('result').classList.add('visible');
+        }
+
+        function copyToClipboard() {
+            const text = document.getElementById('commandOutput').innerText;
+            navigator.clipboard.writeText(text).then(() => {
+                const btn = document.querySelector('.copy-btn');
+                btn.innerText = '✅ Copied!';
+                setTimeout(() => btn.innerText = '📋 Copy to Clipboard', 2000);
+            });
+        }
+    </script>
+</body>
+</html>
