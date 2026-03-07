@@ -1,0 +1,297 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Sales, Marketing &amp; Comms Agent Dashboard</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "primary": "#9d25f4",
+                        "background-light": "#f7f5f8",
+                        "background-dark": "#0f0914",
+                        "emerald-accent": "#10b981",
+                        "charcoal-muted": "#1e1626",
+                    },
+                    fontFamily: {
+                        "display": ["Space Grotesk", "sans-serif"]
+                    },
+                    borderRadius: {"DEFAULT": "0.25rem", "lg": "0.5rem", "xl": "0.75rem", "full": "9999px"},
+                },
+            },
+        }
+    </script>
+<style>
+        body {
+            font-family: 'Space Grotesk', sans-serif;
+        }
+        .glass-panel {
+            background: rgba(30, 22, 38, 0.6);
+            backdrop-filter: blur(12px);
+            border: 1px solid rgba(157, 37, 244, 0.1);
+        }
+        .emerald-glow {
+            box-shadow: 0 0 15px rgba(16, 185, 129, 0.3);
+        }
+    </style>
+</head>
+<body class="bg-background-light dark:bg-background-dark text-slate-900 dark:text-slate-100 min-h-screen">
+<!-- Top Navigation Bar -->
+<header class="border-b border-primary/20 bg-background-light dark:bg-background-dark/80 sticky top-0 z-50">
+<div class="max-w-[1600px] mx-auto px-6 h-16 flex items-center justify-between">
+<div class="flex items-center gap-8">
+<div class="flex items-center gap-3 text-primary">
+<span class="material-symbols-outlined text-3xl">cyclone</span>
+<h1 class="text-xl font-bold tracking-tight dark:text-white">Dual-Agent Ops</h1>
+</div>
+<nav class="hidden md:flex items-center gap-6">
+<a class="text-sm font-medium text-primary border-b-2 border-primary pb-5 mt-5" href="#">Command Center</a>
+<a class="text-sm font-medium text-slate-500 hover:text-primary transition-colors" href="#">Inventory Flow</a>
+<a class="text-sm font-medium text-slate-500 hover:text-primary transition-colors" href="#">Circular Metrics</a>
+<a class="text-sm font-medium text-slate-500 hover:text-primary transition-colors" href="#">System Health</a>
+</nav>
+</div>
+<div class="flex items-center gap-4">
+<div class="relative hidden lg:block">
+<span class="material-symbols-outlined absolute left-3 top-1/2 -translate-y-1/2 text-slate-400 text-sm">search</span>
+<input class="bg-charcoal-muted border-none rounded-lg pl-10 pr-4 py-2 text-sm w-64 focus:ring-1 focus:ring-primary" placeholder="Global asset search..." type="text"/>
+</div>
+<div class="flex items-center gap-2">
+<button class="p-2 hover:bg-primary/10 rounded-lg transition-colors"><span class="material-symbols-outlined">notifications</span></button>
+<button class="p-2 hover:bg-primary/10 rounded-lg transition-colors"><span class="material-symbols-outlined">settings</span></button>
+<div class="h-8 w-8 rounded-full bg-primary/20 border border-primary/30 flex items-center justify-center overflow-hidden">
+<img class="w-full h-full object-cover" data-alt="User profile avatar of a system administrator" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBMQboQADMcVugNxQ3RN8VbN8oTrvkR2texKMJBSh9v0ciaS1WZzDz-KMcvKIEt4tRQfyvQrfcQ7bVw5fWQXeb0JxGuY7vRY_wKS0C2y_2x-w0NiODq6LqUm9B2YCHPd2U1lQts1zPO3BI3Etq03ursVxt_a3UReTbRmKUfnWoPAQZmcKzn6QxqPZDQrEe_eSX4AXscmaMsI9z8_22t7Akb51SPzJ_D8LXmefeCqT8Lz_DOao6srTXyGXtx7OuP6yxzasodjLw3"/>
+</div>
+</div>
+</div>
+</div>
+</header>
+<main class="max-w-[1600px] mx-auto p-6 space-y-6">
+<!-- Safety Layer Verification Badge -->
+<div class="flex justify-center">
+<div class="glass-panel emerald-glow rounded-full px-6 py-2 border border-emerald-accent/30 flex items-center gap-3 bg-emerald-accent/5">
+<span class="material-symbols-outlined text-emerald-accent animate-pulse">verified_user</span>
+<span class="text-sm font-bold tracking-wide uppercase text-emerald-accent">Safety Layer Verification</span>
+<div class="h-4 w-[1px] bg-emerald-accent/30 mx-2"></div>
+<span class="text-sm font-medium text-slate-300">Brand Guardrails: <span class="text-emerald-accent">100% Compliant</span></span>
+</div>
+</div>
+<div class="grid grid-cols-1 lg:grid-cols-2 gap-6">
+<!-- LEFT PANEL: Sales & Marketing Agent -->
+<section class="space-y-6">
+<div class="flex items-center gap-2 mb-2">
+<span class="material-symbols-outlined text-primary">campaign</span>
+<h2 class="text-xl font-bold uppercase tracking-widest text-primary/80">Sales &amp; Marketing Agent</h2>
+</div>
+<!-- Dynamic Listing Draft -->
+<div class="glass-panel rounded-xl p-6 border-l-4 border-l-primary">
+<div class="flex justify-between items-start mb-6">
+<div>
+<span class="text-[10px] font-bold text-primary bg-primary/10 px-2 py-0.5 rounded uppercase mb-2 inline-block">Refurbished Asset #8821</span>
+<h3 class="text-2xl font-bold text-white leading-tight">Refurbished Specialized Tarmac SL7</h3>
+<p class="text-slate-400 text-sm">Status: Draft Optimized for SEO / Google Merchant</p>
+</div>
+<button class="bg-primary hover:bg-primary/80 text-white px-4 py-2 rounded-lg font-bold text-sm transition-all flex items-center gap-2">
+<span class="material-symbols-outlined text-sm">rocket_launch</span>
+                            Publish Listing
+                        </button>
+</div>
+<div class="space-y-4">
+<div class="bg-background-dark/40 rounded-lg p-4 border border-white/5">
+<label class="text-[10px] uppercase font-bold text-slate-500 mb-1 block">SEO Title</label>
+<p class="text-slate-200 font-medium italic">"Pro-Grade Speed: Certified Refurbished Specialized Tarmac SL7 - Ultralight Carbon Frame, SRAM Force eTap AXS"</p>
+</div>
+<div class="bg-background-dark/40 rounded-lg p-4 border border-white/5">
+<label class="text-[10px] uppercase font-bold text-slate-500 mb-1 block">AI-Generated Description Snippet</label>
+<p class="text-slate-400 text-sm leading-relaxed">
+                                Experience World Tour performance with a reduced carbon footprint. This SL7 has undergone a 40-point inspection and component rejuvenation. Circular economy ready.
+                            </p>
+</div>
+</div>
+</div>
+<!-- Real-time Pricing Engine -->
+<div class="glass-panel rounded-xl p-6">
+<div class="flex items-center justify-between mb-6">
+<div class="flex items-center gap-2">
+<span class="material-symbols-outlined text-primary">trending_up</span>
+<h3 class="font-bold">Real-time Pricing Engine</h3>
+</div>
+<div class="flex gap-4">
+<div class="text-right">
+<span class="block text-[10px] text-slate-500 uppercase font-bold">Suggested MSRP</span>
+<span class="text-xl font-bold text-emerald-accent">$7,499.00</span>
+</div>
+</div>
+</div>
+<!-- Sleek Line Graph Mockup -->
+<div class="h-48 w-full relative mt-4 overflow-hidden rounded-lg bg-background-dark/20 p-2">
+<div class="absolute inset-0 flex items-end justify-between px-2 pb-2">
+<div class="w-[8%] bg-primary/20 h-1/2 rounded-t-sm"></div>
+<div class="w-[8%] bg-primary/30 h-2/3 rounded-t-sm"></div>
+<div class="w-[8%] bg-primary/40 h-3/4 rounded-t-sm"></div>
+<div class="w-[8%] bg-primary/20 h-1/2 rounded-t-sm"></div>
+<div class="w-[8%] bg-primary/60 h-full rounded-t-sm border-t-2 border-primary shadow-[0_0_15px_rgba(157,37,244,0.4)]"></div>
+<div class="w-[8%] bg-primary/40 h-4/5 rounded-t-sm"></div>
+<div class="w-[8%] bg-primary/30 h-3/5 rounded-t-sm"></div>
+<div class="w-[8%] bg-primary/20 h-1/2 rounded-t-sm"></div>
+<div class="w-[8%] bg-primary/40 h-2/3 rounded-t-sm"></div>
+<div class="w-[8%] bg-primary/50 h-3/4 rounded-t-sm"></div>
+</div>
+<!-- Overlay Lines -->
+<svg class="absolute inset-0 w-full h-full" preserveaspectratio="none">
+<path class="opacity-80" d="M0 120 Q 100 80, 200 110 T 400 60 T 600 90 T 800 40" fill="none" stroke="#9d25f4" stroke-width="2"></path>
+</svg>
+</div>
+<div class="flex justify-between mt-4">
+<div class="flex items-center gap-2">
+<div class="size-3 rounded-full bg-primary"></div>
+<span class="text-xs text-slate-400">Inventory Age Influence</span>
+</div>
+<div class="flex items-center gap-2">
+<div class="size-3 rounded-full bg-emerald-accent"></div>
+<span class="text-xs text-slate-400">Seasonal Demand Surge (+12%)</span>
+</div>
+</div>
+</div>
+</section>
+<!-- RIGHT PANEL: Communications Command Center -->
+<section class="space-y-6">
+<div class="flex items-center gap-2 mb-2">
+<span class="material-symbols-outlined text-emerald-accent">forum</span>
+<h2 class="text-xl font-bold uppercase tracking-widest text-emerald-accent/80">Communications Command Center</h2>
+</div>
+<!-- Social Media Preview -->
+<div class="glass-panel rounded-xl p-6 border-l-4 border-l-emerald-accent">
+<div class="flex items-center justify-between mb-4">
+<h3 class="font-bold flex items-center gap-2">
+<span class="material-symbols-outlined text-sm">share</span>
+                            Omni-Channel Preview
+                        </h3>
+<div class="flex gap-2">
+<span class="bg-emerald-accent/10 text-emerald-accent text-[10px] font-bold px-2 py-1 rounded">INSTAGRAM</span>
+<span class="bg-slate-700 text-slate-300 text-[10px] font-bold px-2 py-1 rounded">X (TWITTER)</span>
+</div>
+</div>
+<div class="grid grid-cols-2 gap-4">
+<!-- Instagram Mockup -->
+<div class="bg-charcoal-muted rounded-lg overflow-hidden border border-white/5">
+<div class="aspect-square relative">
+<img class="w-full h-full object-cover" data-alt="High-end road bicycle in a sleek dark setting" src="https://lh3.googleusercontent.com/aida-public/AB6AXuA6D-M5zMKTpvbG_RKP3juxxZfknNl6l3yhvNlCx1NmzYknDJ0TeACE8ceE3NAqukV1wgGt0hwhWLfkocx7NRcidS-KqaO869L8h0WpbTl_0nSKwEcH_hOsDnxmxJ3Zq5zGS_XURDd-brylcvMOEx4FizbVc-cs2myd_60hQ0BhVJbDxkxhmVk7EQJSNO52GrCDD8ICBxluQs4H6wC91xDK8jN7EgqHIKPcxoM9HbBXhNrmWaayCucTcRRgJegyxTGFVJkrN0c8"/>
+<div class="absolute inset-0 bg-gradient-to-t from-black/80 to-transparent flex flex-col justify-end p-3">
+<div class="bg-emerald-accent text-white font-black text-xs p-2 rounded flex items-center gap-1 w-fit mb-1">
+<span class="material-symbols-outlined text-[12px]">eco</span>
+                                        24kg CARBON SAVED
+                                    </div>
+<p class="text-[10px] text-white/90 leading-tight">Circular performance has arrived. The SL7, reborn. #Cycling #Sustainability</p>
+</div>
+</div>
+</div>
+<!-- Infographic Sidebar -->
+<div class="flex flex-col gap-3">
+<div class="flex-1 bg-emerald-accent/5 border border-emerald-accent/20 rounded-lg p-3 flex flex-col items-center justify-center text-center">
+<span class="material-symbols-outlined text-emerald-accent text-3xl mb-1">recycling</span>
+<h4 class="text-xs font-bold uppercase text-emerald-accent">Impact Metrics</h4>
+<p class="text-xl font-black text-slate-100">24kg CO2e</p>
+<p class="text-[10px] text-slate-400">Net Neutralized Asset</p>
+</div>
+<div class="bg-background-dark/60 rounded-lg p-3 border border-white/5">
+<h4 class="text-[10px] font-bold uppercase text-slate-500 mb-2">Technical Specs Hook</h4>
+<ul class="text-[10px] space-y-1 text-slate-300">
+<li class="flex items-center gap-1"><span class="material-symbols-outlined text-[12px] text-primary">check_circle</span> 6.8kg Total Weight</li>
+<li class="flex items-center gap-1"><span class="material-symbols-outlined text-[12px] text-primary">check_circle</span> SRAM eTap AXS Group</li>
+<li class="flex items-center gap-1"><span class="material-symbols-outlined text-[12px] text-primary">check_circle</span> Roval Rapide CLX Wheels</li>
+</ul>
+</div>
+</div>
+</div>
+</div>
+<!-- Real-time Social Listening -->
+<div class="glass-panel rounded-xl p-6">
+<div class="flex items-center justify-between mb-4">
+<div class="flex items-center gap-2">
+<span class="material-symbols-outlined text-emerald-accent">sensors</span>
+<h3 class="font-bold">Social Listening Feed</h3>
+</div>
+<div class="flex items-center gap-2 text-xs text-slate-400">
+<span class="size-2 rounded-full bg-emerald-accent animate-ping"></span>
+                            Live Monitoring
+                        </div>
+</div>
+<div class="space-y-3">
+<div class="flex items-center justify-between p-3 bg-white/5 rounded-lg border border-white/5">
+<div class="flex flex-col">
+<span class="text-xs font-bold text-white">#TarmacSL7</span>
+<span class="text-[10px] text-slate-500">Mentions: +42% in last 1hr</span>
+</div>
+<div class="text-right">
+<span class="text-[10px] text-emerald-accent font-bold uppercase">Trending High</span>
+</div>
+</div>
+<div class="flex items-center justify-between p-3 bg-white/5 rounded-lg border border-white/5">
+<div class="flex flex-col">
+<span class="text-xs font-bold text-white">"Refurbished Carbon"</span>
+<span class="text-[10px] text-slate-500">Sentiment: 92% Positive</span>
+</div>
+<div class="text-right">
+<span class="text-[10px] text-primary font-bold uppercase">Peak Window</span>
+</div>
+</div>
+<div class="flex items-center justify-between p-3 bg-white/5 rounded-lg border border-white/5">
+<div class="flex flex-col">
+<span class="text-xs font-bold text-white">"Circular Economy Cycling"</span>
+<span class="text-[10px] text-slate-500">Keyword reach: 1.2M</span>
+</div>
+<div class="text-right">
+<span class="text-[10px] text-slate-500 font-bold uppercase">Stable</span>
+</div>
+</div>
+</div>
+<div class="mt-4 pt-4 border-t border-white/5 flex justify-between items-center">
+<p class="text-xs text-slate-400">Next peak engagement window: <span class="text-white font-bold">18:45 UTC</span></p>
+<button class="text-[10px] font-bold text-emerald-accent hover:underline flex items-center gap-1">
+                            VIEW FULL ANALYTICS <span class="material-symbols-outlined text-[12px]">arrow_forward</span>
+</button>
+</div>
+</div>
+</section>
+</div>
+<!-- System Stats Footer -->
+<footer class="grid grid-cols-2 md:grid-cols-4 gap-4">
+<div class="glass-panel p-4 rounded-xl flex items-center gap-3">
+<span class="material-symbols-outlined text-primary bg-primary/10 p-2 rounded-lg">speed</span>
+<div>
+<p class="text-[10px] text-slate-500 uppercase font-bold tracking-wider">Inference Speed</p>
+<p class="text-lg font-bold">12ms</p>
+</div>
+</div>
+<div class="glass-panel p-4 rounded-xl flex items-center gap-3">
+<span class="material-symbols-outlined text-emerald-accent bg-emerald-accent/10 p-2 rounded-lg">energy_savings_leaf</span>
+<div>
+<p class="text-[10px] text-slate-500 uppercase font-bold tracking-wider">Carbon Offset</p>
+<p class="text-lg font-bold">4.2 Tons</p>
+</div>
+</div>
+<div class="glass-panel p-4 rounded-xl flex items-center gap-3">
+<span class="material-symbols-outlined text-primary bg-primary/10 p-2 rounded-lg">inventory_2</span>
+<div>
+<p class="text-[10px] text-slate-500 uppercase font-bold tracking-wider">Assets Liquidated</p>
+<p class="text-lg font-bold">1,204</p>
+</div>
+</div>
+<div class="glass-panel p-4 rounded-xl flex items-center gap-3">
+<span class="material-symbols-outlined text-emerald-accent bg-emerald-accent/10 p-2 rounded-lg">token</span>
+<div>
+<p class="text-[10px] text-slate-500 uppercase font-bold tracking-wider">Chain Verified</p>
+<p class="text-lg font-bold">100%</p>
+</div>
+</div>
+</footer>
+</main>
+</body></html>

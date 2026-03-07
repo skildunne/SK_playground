@@ -1,0 +1,250 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>EcoCoach CX Operations Dashboard</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "primary": "#0df280",
+                        "background-light": "#f5f8f7",
+                        "background-dark": "#102219",
+                    },
+                    fontFamily: {
+                        "display": ["Space Grotesk"]
+                    },
+                    borderRadius: {"DEFAULT": "0.25rem", "lg": "0.5rem", "xl": "0.75rem", "full": "9999px"},
+                },
+            },
+        }
+    </script>
+<style>
+        body {
+            font-family: 'Space Grotesk', sans-serif;
+        }
+        .custom-scrollbar::-webkit-scrollbar {
+            width: 4px;
+        }
+        .custom-scrollbar::-webkit-scrollbar-track {
+            background: rgba(13, 242, 128, 0.05);
+        }
+        .custom-scrollbar::-webkit-scrollbar-thumb {
+            background: rgba(13, 242, 128, 0.2);
+            border-radius: 10px;
+        }
+    </style>
+</head>
+<body class="bg-background-light dark:bg-background-dark text-slate-900 dark:text-slate-100 min-h-screen">
+<div class="flex h-screen overflow-hidden">
+<aside class="w-64 border-r border-primary/10 bg-background-light dark:bg-background-dark flex flex-col">
+<div class="p-6 flex items-center gap-3">
+<div class="size-8 bg-primary rounded-lg flex items-center justify-center text-background-dark">
+<span class="material-symbols-outlined font-bold">eco</span>
+</div>
+<h1 class="font-display font-bold text-xl tracking-tight">EcoCoach</h1>
+</div>
+<nav class="flex-1 px-4 space-y-2 py-4">
+<a class="flex items-center gap-3 px-3 py-2 rounded-lg bg-primary/10 text-primary" href="#">
+<span class="material-symbols-outlined">dashboard</span>
+<span class="text-sm font-medium">Operations</span>
+</a>
+<a class="flex items-center gap-3 px-3 py-2 rounded-lg hover:bg-primary/5 text-slate-400 hover:text-primary transition-colors" href="#">
+<span class="material-symbols-outlined">chat_bubble</span>
+<span class="text-sm font-medium">Active Chats</span>
+</a>
+<a class="flex items-center gap-3 px-3 py-2 rounded-lg hover:bg-primary/5 text-slate-400 hover:text-primary transition-colors" href="#">
+<span class="material-symbols-outlined">inventory_2</span>
+<span class="text-sm font-medium">Inventory</span>
+</a>
+<a class="flex items-center gap-3 px-3 py-2 rounded-lg hover:bg-primary/5 text-slate-400 hover:text-primary transition-colors" href="#">
+<span class="material-symbols-outlined">analytics</span>
+<span class="text-sm font-medium">Insights</span>
+</a>
+<a class="flex items-center gap-3 px-3 py-2 rounded-lg hover:bg-primary/5 text-slate-400 hover:text-primary transition-colors" href="#">
+<span class="material-symbols-outlined">settings</span>
+<span class="text-sm font-medium">Settings</span>
+</a>
+</nav>
+<div class="p-4 mt-auto">
+<div class="bg-primary/5 border border-primary/20 rounded-xl p-4">
+<div class="flex items-center justify-between mb-2">
+<span class="text-xs font-bold text-primary uppercase tracking-wider">AI Status</span>
+<span class="size-2 rounded-full bg-primary animate-pulse"></span>
+</div>
+<p class="text-sm text-slate-300">Optimal performance. Agent handling 42 active negotiations.</p>
+</div>
+</div>
+</aside>
+<div class="flex-1 flex flex-col min-w-0">
+<header class="h-16 border-b border-primary/10 flex items-center justify-between px-8 bg-background-light dark:bg-background-dark/50 backdrop-blur-md sticky top-0 z-10">
+<div class="flex items-center gap-6 flex-1">
+<div class="relative w-96">
+<span class="material-symbols-outlined absolute left-3 top-1/2 -translate-y-1/2 text-slate-500 text-xl">search</span>
+<input class="w-full bg-primary/5 border-none focus:ring-1 focus:ring-primary rounded-lg pl-10 pr-4 py-2 text-sm" placeholder="Search orders, customers or SKU..." type="text"/>
+</div>
+</div>
+<div class="flex items-center gap-4">
+<button class="p-2 text-slate-400 hover:text-primary transition-colors relative">
+<span class="material-symbols-outlined">shield_lock</span>
+<span class="absolute top-2 right-2 size-2 bg-primary rounded-full ring-2 ring-background-dark"></span>
+</button>
+<button class="p-2 text-slate-400 hover:text-primary transition-colors">
+<span class="material-symbols-outlined">notifications</span>
+</button>
+<div class="h-8 w-[1px] bg-primary/10 mx-2"></div>
+<div class="flex items-center gap-3 cursor-pointer group">
+<div class="text-right">
+<p class="text-sm font-bold group-hover:text-primary transition-colors">Alex Chen</p>
+<p class="text-[10px] text-slate-500 uppercase tracking-widest">Ops Manager</p>
+</div>
+<div class="size-10 rounded-full border-2 border-primary/20 p-0.5 overflow-hidden">
+<img alt="User avatar" class="w-full h-full rounded-full object-cover" data-alt="Professional portrait of a male operations manager" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBswmIwVnaIhj5Wzq50flOhyyDJPAZxxCmjP7T1sJuPXCQh9d90xJ3yRNc2hZ4BOE8txarKuDXssNXmIb1RyVYLMNRgMfuNls-0UxByLLWUaosdPVVoC1_X1V7MSVUsILJzFXhULEp4vXJ57hZiLh3GIVdfRvXqm0f6irujOWfZb0_4k5GTVyMvh9pKwCe1tveqIp6sAexeM7FSzGLia9YD0t-ZfNTl-PwF2wVzgLZ9zXF7jw6R8DtLHmY-3gzLSn-3acvEG_vo"/>
+</div>
+</div>
+</div>
+</header>
+<main class="flex-1 overflow-hidden flex bg-background-light dark:bg-background-dark/30">
+<div class="flex-1 flex flex-col min-w-0">
+<div class="p-6 border-b border-primary/5 flex items-center justify-between bg-background-light dark:bg-[#122b1f]/20">
+<div class="flex items-center gap-4">
+<div class="size-12 rounded-xl overflow-hidden border border-primary/20">
+<img alt="Bike product" class="w-full h-full object-cover" data-alt="Refurbished Specialized Tarmac SL7 road bike" src="https://lh3.googleusercontent.com/aida-public/AB6AXuB3-yTU-j4LXxBzyZmuEcnuCE0Rj_8PCwwGwK3FkZgoDx3G0zy4zx8FbqP7vLU1_r4RN_OTbF79ihpfHniMl8CDZbGWflh2SqQb0ay1rakpRv_KHH9C-I2AKNFgiOGRWTHWEfdtShMzVsTbbKsYaqU61TQ7NqTAFZmKKKmBLAxw-DNjy4xZ-1iWgIE-E0tL0HmBmonEUs6SsXoIw1WM6yT41tUV-dZeed_hOBftK2FtRYcpM1n25uUaBgw_DMzmPCgfxnpgzTKJ"/>
+</div>
+<div>
+<h2 class="font-display font-bold text-lg">Specialized Tarmac SL7 (Refurbished)</h2>
+<p class="text-sm text-slate-400">Negotiation in progress • Customer ID #8429</p>
+</div>
+</div>
+<div class="flex items-center gap-2">
+<span class="px-3 py-1 bg-primary/20 text-primary text-xs font-bold rounded-full border border-primary/30 uppercase tracking-wider">Active Offer</span>
+<button class="px-4 py-2 bg-primary text-background-dark font-bold text-sm rounded-lg hover:opacity-90 transition-opacity">Take Over Chat</button>
+</div>
+</div>
+<div class="flex-1 overflow-y-auto p-6 space-y-6 custom-scrollbar">
+<div class="flex justify-center">
+<span class="text-[10px] font-bold text-slate-500 uppercase tracking-widest bg-primary/5 px-3 py-1 rounded-full">Conversation Started 10:42 AM</span>
+</div>
+<div class="flex gap-3 max-w-2xl">
+<div class="size-8 rounded-full bg-primary/10 flex items-center justify-center text-primary flex-shrink-0">
+<span class="material-symbols-outlined text-sm">smart_toy</span>
+</div>
+<div class="bg-primary/10 border border-primary/20 rounded-xl rounded-tl-none p-4">
+<p class="text-sm leading-relaxed">Hello! I'm EcoCoach, your circular economy expert. I'm excited you're interested in this SL7. It's been fully certified by our mechanics. How can I help you today?</p>
+</div>
+</div>
+<div class="flex gap-3 max-w-2xl ml-auto flex-row-reverse">
+<div class="size-8 rounded-full bg-slate-700 flex items-center justify-center text-white flex-shrink-0">
+<span class="material-symbols-outlined text-sm">person</span>
+</div>
+<div class="bg-slate-800 border border-slate-700 rounded-xl rounded-tr-none p-4">
+<p class="text-sm leading-relaxed">The price is a bit high for a refurbished SL7. Can you do $2800? I'm ready to checkout right now if we can agree.</p>
+</div>
+</div>
+<div class="flex gap-3 max-w-2xl">
+<div class="size-8 rounded-full bg-primary/10 flex items-center justify-center text-primary flex-shrink-0">
+<span class="material-symbols-outlined text-sm">smart_toy</span>
+</div>
+<div class="bg-primary/10 border border-primary/20 rounded-xl rounded-tl-none p-4">
+<div class="flex items-center gap-2 mb-2">
+<span class="size-1.5 rounded-full bg-primary animate-pulse"></span>
+<span class="text-[10px] font-bold text-primary uppercase">EcoCoach is analyzing floor price...</span>
+</div>
+<p class="text-sm leading-relaxed">I understand you're looking for the best value! While $2800 is below our absolute floor, I can offer it at $3050. This includes our ultrasonic frame certification and saves exactly 24kg of CO2 compared to buying new. Does that work for your budget?</p>
+</div>
+</div>
+</div>
+<div class="p-6 border-t border-primary/5">
+<div class="relative flex items-center gap-4">
+<button class="p-2 text-slate-400 hover:text-primary transition-colors">
+<span class="material-symbols-outlined">add_circle</span>
+</button>
+<input class="flex-1 bg-primary/5 border border-primary/10 focus:ring-1 focus:ring-primary rounded-xl px-4 py-3 text-sm" placeholder="Type a message to the customer or AI instruction..." type="text"/>
+<button class="bg-primary text-background-dark size-11 flex items-center justify-center rounded-xl hover:opacity-90">
+<span class="material-symbols-outlined font-bold">send</span>
+</button>
+</div>
+</div>
+</div>
+<aside class="w-80 border-l border-primary/10 bg-background-light dark:bg-background-dark flex flex-col overflow-y-auto custom-scrollbar">
+<div class="p-6 border-b border-primary/5">
+<div class="flex items-center gap-2 mb-4">
+<span class="material-symbols-outlined text-primary text-lg">query_stats</span>
+<h3 class="font-display font-bold text-sm uppercase tracking-wider text-slate-400">Inventory Intel</h3>
+</div>
+<div class="space-y-4">
+<div class="bg-primary/5 rounded-xl p-3 border border-primary/10">
+<p class="text-[10px] font-bold text-slate-500 uppercase mb-1 tracking-widest">Listed Price</p>
+<p class="text-2xl font-display font-bold text-slate-100">$3,200</p>
+</div>
+<div class="grid grid-cols-2 gap-3">
+<div class="bg-background-light dark:bg-red-500/5 rounded-xl p-3 border border-red-500/20">
+<p class="text-[10px] font-bold text-red-400 uppercase mb-1 tracking-widest leading-tight">Floor Price</p>
+<p class="text-lg font-display font-bold text-red-400">$2,700</p>
+</div>
+<div class="bg-primary/5 rounded-xl p-3 border border-primary/10">
+<p class="text-[10px] font-bold text-slate-500 uppercase mb-1 tracking-widest leading-tight">Current Margin</p>
+<p class="text-lg font-display font-bold text-primary">23.4%</p>
+</div>
+</div>
+<div class="flex items-center justify-between px-2">
+<span class="text-xs text-slate-500">Days in Inventory</span>
+<span class="text-xs font-bold px-2 py-0.5 bg-slate-800 rounded">45 Days</span>
+</div>
+</div>
+</div>
+<div class="p-6 border-b border-primary/5">
+<div class="flex items-center gap-2 mb-4">
+<span class="material-symbols-outlined text-primary text-lg">psychology_alt</span>
+<h3 class="font-display font-bold text-sm uppercase tracking-wider text-slate-400">Agent Strategy</h3>
+</div>
+<div class="space-y-3">
+<div class="flex items-start gap-3">
+<span class="material-symbols-outlined text-primary text-base mt-0.5">check_circle</span>
+<p class="text-xs text-slate-300">Highlight <strong>Ultrasonic Scan</strong> results: No structural defects found.</p>
+</div>
+<div class="flex items-start gap-3">
+<span class="material-symbols-outlined text-primary text-base mt-0.5">check_circle</span>
+<p class="text-xs text-slate-300">Emphasize <strong>Sustainability Impact</strong>: 24kg CO2 savings compared to new build.</p>
+</div>
+<div class="flex items-start gap-3">
+<span class="material-symbols-outlined text-primary text-base mt-0.5">lightbulb</span>
+<p class="text-xs text-slate-300">Strategy: Soft-anchor at $3050 before conceding to $2900 bundle.</p>
+</div>
+</div>
+</div>
+<div class="p-6">
+<div class="flex items-center gap-2 mb-4">
+<span class="material-symbols-outlined text-primary text-lg">shield_with_heart</span>
+<h3 class="font-display font-bold text-sm uppercase tracking-wider text-slate-400">Verification</h3>
+</div>
+<div class="space-y-4">
+<div class="bg-primary/5 border border-primary/20 rounded-xl p-4 relative overflow-hidden group">
+<div class="absolute top-0 right-0 p-2 opacity-20">
+<span class="material-symbols-outlined text-4xl">verified</span>
+</div>
+<p class="text-xs font-bold text-primary mb-1">Authenticity Scan</p>
+<p class="text-[10px] text-slate-400 mb-2">Serial: #SP-SL7-9923-RT</p>
+<div class="w-full bg-slate-800 rounded-full h-1">
+<div class="bg-primary h-1 rounded-full w-full"></div>
+</div>
+<p class="text-[10px] font-bold text-primary mt-2">100% MATCH</p>
+</div>
+<button class="w-full border border-primary/20 hover:bg-primary/5 text-slate-300 font-bold py-2 rounded-lg text-xs transition-colors flex items-center justify-center gap-2">
+<span class="material-symbols-outlined text-sm">open_in_new</span>
+                                View Detailed History
+                            </button>
+</div>
+</div>
+</aside>
+</main>
+</div>
+</div>
+</body></html>

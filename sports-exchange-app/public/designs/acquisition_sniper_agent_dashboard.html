@@ -1,0 +1,321 @@
+<html class="dark"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+    tailwind.config = {
+      darkMode: "class",
+      theme: {
+        extend: {
+          colors: {
+            "primary": "#0df280",
+            "background-light": "#f5f8f7",
+            "background-dark": "#0a120e",
+            "surface": "#16251d",
+            "accent-amber": "#ffbf00",
+          },
+          fontFamily: {
+            "display": ["Space Grotesk"]
+          },
+          borderRadius: {
+            "DEFAULT": "0.25rem",
+            "lg": "0.5rem",
+            "xl": "0.75rem",
+            "full": "9999px"
+          },
+        },
+      },
+    }
+  </script>
+<style>
+    body {
+      font-family: 'Space Grotesk', sans-serif;
+    }
+    .scanner-line {
+      height: 2px;
+      background: linear-gradient(90deg, transparent, #0df280, transparent);
+      position: absolute;
+      width: 100%;
+      top: 50%;
+    }
+  </style>
+</head>
+<body class="bg-background-light dark:bg-background-dark text-slate-900 dark:text-slate-100 min-h-screen flex flex-col">
+<header class="border-b border-primary/10 bg-surface/50 backdrop-blur-md sticky top-0 z-50 px-6 py-3 flex items-center justify-between">
+<div class="flex items-center gap-6">
+<div class="flex items-center gap-3 text-primary">
+<span class="material-symbols-outlined text-3xl">target</span>
+<h1 class="text-xl font-bold tracking-tight">SNIPER <span class="text-slate-400 font-light">AGENT</span></h1>
+</div>
+<nav class="hidden md:flex items-center gap-6 ml-4">
+<a class="text-sm font-medium text-primary border-b-2 border-primary pb-1" href="#">Live Ops</a>
+<a class="text-sm font-medium text-slate-400 hover:text-white transition-colors" href="#">Inventory</a>
+<a class="text-sm font-medium text-slate-400 hover:text-white transition-colors" href="#">Scout Logs</a>
+<a class="text-sm font-medium text-slate-400 hover:text-white transition-colors" href="#">Yield Config</a>
+</nav>
+</div>
+<div class="flex items-center gap-4">
+<div class="hidden lg:flex items-center bg-background-dark/50 border border-primary/20 rounded-lg px-3 py-1.5 gap-3">
+<div class="flex flex-col items-end">
+<span class="text-[10px] uppercase text-slate-500 font-bold leading-none">System Load</span>
+<span class="text-xs font-mono text-primary">0.14ms Latency</span>
+</div>
+<div class="h-8 w-[1px] bg-primary/20"></div>
+<div class="flex items-center gap-2">
+<span class="flex h-2 w-2 rounded-full bg-primary animate-pulse"></span>
+<span class="text-xs font-bold text-primary uppercase">Active</span>
+</div>
+</div>
+<button class="p-2 text-slate-400 hover:text-primary transition-colors">
+<span class="material-symbols-outlined">notifications</span>
+</button>
+<div class="h-10 w-10 rounded-full border-2 border-primary/30 p-0.5">
+<div class="h-full w-full rounded-full bg-cover bg-center" data-alt="User avatar placeholder" style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuBOCths3YFquVEGkw6yzsCYA--2xCtujmTHck2zLBSNo824mB2YyBBWHmMisoM0MLZaKKYRQ-D8uNHdBo8fEVB2-dqull6I0tgKa1oUS3ASzEmBU-nfGqlGJSXLIX79r6rBT29QOtOFRlTpBdzTwsrZllWGpaJyUrzkDT3HPkIi6RWHOFx-qVhSzo7uG8TcgQJyCuG2tpuVWZHyR9FvEz7Wo36fLtmfC7CYUL1Bl8Unap-7w5nbKaC_PMCJLqbo_fvq2U5kwzxp')"></div>
+</div>
+</div>
+</header>
+<main class="flex-1 flex overflow-hidden p-6 gap-6">
+<aside class="w-80 flex flex-col gap-4 overflow-y-auto">
+<div class="flex items-center justify-between mb-2">
+<h2 class="text-xs font-bold uppercase tracking-widest text-slate-500">Marketplace Feed</h2>
+<span class="text-[10px] bg-primary/10 text-primary px-2 py-0.5 rounded border border-primary/20">REAL-TIME</span>
+</div>
+<div class="flex flex-col gap-3">
+<div class="bg-surface border border-primary/10 hover:border-primary/40 rounded-xl p-3 transition-all cursor-pointer group">
+<div class="relative mb-3 rounded-lg overflow-hidden h-32">
+<div class="absolute inset-0 bg-cover bg-center group-hover:scale-110 transition-transform duration-500" data-alt="High-end carbon road bike listing" style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuCcTqy5fPEq1SGAX8XHX1XymoJ-X18ycSZxiW9y0aOPm8QS58WN59pldddNfOA--lZmyxa8Bj3QfjtVkzIEBBdI9XFKrUrAFN9jVxZLSGP_THyWjQ2FPBcH6rdeE49XMtBd_6OgZCG-LyyGS0CR2tPSlg0TKcBeVA4W38MpvGpQmXHp1Ln-c16s-QVQGIxtwSNg83nRHhCvEs5aPLe190FaXRLlKZCxeJ_ZafYXqMt2ODh43xan8hotTtfuKmDQpmGoRYK68yqS')"></div>
+<div class="absolute top-2 right-2 bg-background-dark/80 backdrop-blur-md px-2 py-1 rounded text-[10px] font-bold text-primary border border-primary/20">EBAY</div>
+</div>
+<h3 class="text-sm font-bold mb-1 truncate">Specialized S-Works Tarmac SL7</h3>
+<div class="flex justify-between items-center">
+<span class="text-primary font-bold">$4,200</span>
+<span class="text-[10px] text-slate-500">2m ago</span>
+</div>
+<div class="mt-2 h-1 w-full bg-slate-800 rounded-full overflow-hidden">
+<div class="h-full bg-primary w-3/4"></div>
+</div>
+<p class="text-[10px] text-primary mt-1 font-medium italic">High Confidence Match (92%)</p>
+</div>
+<div class="bg-surface border border-slate-800 rounded-xl p-3 opacity-80">
+<div class="relative mb-3 rounded-lg overflow-hidden h-32 grayscale">
+<div class="absolute inset-0 bg-cover bg-center" data-alt="Luxury golf club driver" style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuCrH5EqRxiDqG-osHKQGjCqZ1J21EXnLM8LfuB1e9erJy1KisZrzW-w_cqaqFjjO4S4Vc2KVR5yMPY_rUjFGNBLU3_tPpJva5a2cKjIfEp1R9cd8R3pLkuaBRZK3GNZSzAJ3pL7DHgb4fWAuD7L3X72nDdJkN5KS5QXmgncVEYb7P_N7KVRA0xSyEaQy5tGZMU9AHBniOu-9ZVwogeBTXhAo12S6yiOdHj4aP2Dju8es8zwxf5TT1nwU6p-h9vhHZFU79zDCWAA')"></div>
+<div class="absolute top-2 right-2 bg-red-900/80 backdrop-blur-md px-2 py-1 rounded text-[10px] font-bold text-red-200 border border-red-500/30">FORUM</div>
+</div>
+<h3 class="text-sm font-bold mb-1 truncate">TaylorMade Stealth Driver (Custom)</h3>
+<div class="flex justify-between items-center">
+<span class="text-slate-400 font-bold">$350</span>
+<span class="text-[10px] text-slate-500">14m ago</span>
+</div>
+<p class="text-[10px] text-accent-amber mt-2 font-medium flex items-center gap-1">
+<span class="material-symbols-outlined text-xs">warning</span> Flagged: Probable Scam
+          </p>
+</div>
+<div class="bg-surface border border-slate-800 rounded-xl p-3">
+<div class="relative mb-3 rounded-lg overflow-hidden h-32">
+<div class="absolute inset-0 bg-cover bg-center" data-alt="Pro triathlon gear" style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuCyeRYQmEnOCFO5hugVH9PRfQRUk4xce1RYJ9RsaYJ5zp7Ao6l9UYddm2hu0v1NTWsM26FtyinPRci3YR2tMIMH2ZHCtFhR-t6rjEgpxurs3JOVvKmfpQWUgtmdCvGK2klVROI8sqj7dibOjsoBXeJmBRFQ3wbe4I0cR2L8TLZcF8Avd5T3G8p40EHDT72iFuosDBhdOwgcdtFktOE6jQI9Z9A-3WlNSFaixB9rWHSOob2_g6WPeOMhbxO5tp6B2VpEocb1i2bY')"></div>
+<div class="absolute top-2 right-2 bg-background-dark/80 backdrop-blur-md px-2 py-1 rounded text-[10px] font-bold text-primary border border-primary/20">CRAIGSLIST</div>
+</div>
+<h3 class="text-sm font-bold mb-1 truncate">Pinarello Dogma F12 Rim</h3>
+<div class="flex justify-between items-center">
+<span class="text-primary font-bold">$6,800</span>
+<span class="text-[10px] text-slate-500">45m ago</span>
+</div>
+<p class="text-[10px] text-slate-500 mt-2">Awaiting Visual Verification...</p>
+</div>
+</div>
+</aside>
+<div class="flex-1 flex flex-col gap-6 overflow-y-auto">
+<section class="grid grid-cols-1 md:grid-cols-3 gap-4">
+<div class="bg-surface/50 border border-primary/10 rounded-xl p-4 flex flex-col gap-1 relative overflow-hidden">
+<div class="absolute top-0 right-0 p-2 opacity-10">
+<span class="material-symbols-outlined text-4xl">trending_up</span>
+</div>
+<span class="text-xs font-bold text-slate-500 uppercase">Target Margin</span>
+<div class="flex items-end gap-2">
+<span class="text-3xl font-bold text-white">15.4%</span>
+<span class="text-xs text-primary font-bold mb-1">+2.1%</span>
+</div>
+<div class="w-full bg-slate-800 h-1.5 rounded-full mt-2">
+<div class="h-full bg-primary rounded-full w-[75%]"></div>
+</div>
+</div>
+<div class="bg-surface/50 border border-primary/10 rounded-xl p-4 flex flex-col gap-1 relative overflow-hidden">
+<div class="absolute top-0 right-0 p-2 opacity-10">
+<span class="material-symbols-outlined text-4xl">verified_user</span>
+</div>
+<span class="text-xs font-bold text-slate-500 uppercase">Scams Filtered</span>
+<div class="flex items-end gap-2">
+<span class="text-3xl font-bold text-white">12</span>
+<span class="text-[10px] bg-red-500/20 text-red-400 px-1.5 py-0.5 rounded font-bold mb-1">PROTECTED</span>
+</div>
+</div>
+<div class="bg-surface/50 border border-primary/20 rounded-xl p-4 flex flex-col gap-1 relative overflow-hidden ring-1 ring-primary/20">
+<div class="absolute -right-4 -top-4 w-24 h-24 bg-primary/5 rounded-full blur-2xl"></div>
+<span class="text-xs font-bold text-slate-500 uppercase">Reasoning Depth</span>
+<div class="flex items-center gap-3">
+<span class="text-3xl font-bold text-primary">HIGH</span>
+<div class="flex-1 h-8 flex items-center gap-0.5">
+<div class="h-2 w-full bg-primary rounded-sm"></div>
+<div class="h-3 w-full bg-primary rounded-sm"></div>
+<div class="h-4 w-full bg-primary rounded-sm"></div>
+<div class="h-5 w-full bg-primary rounded-sm"></div>
+<div class="h-6 w-full bg-primary rounded-sm"></div>
+<div class="h-7 w-full bg-primary rounded-sm"></div>
+<div class="h-8 w-full bg-primary rounded-sm animate-pulse shadow-[0_0_15px_rgba(13,242,128,0.5)]"></div>
+</div>
+</div>
+</div>
+</section>
+<section class="bg-surface border border-slate-800 rounded-2xl p-6 flex-1 flex flex-col min-h-[500px]">
+<div class="flex items-center justify-between mb-6">
+<div class="flex items-center gap-3">
+<span class="material-symbols-outlined text-primary">visibility</span>
+<h2 class="text-lg font-bold">Multimodal Vision Verification</h2>
+</div>
+<div class="flex gap-2">
+<button class="bg-slate-800 hover:bg-slate-700 text-[10px] font-bold px-3 py-1 rounded transition-colors uppercase">Enhance</button>
+<button class="bg-slate-800 hover:bg-slate-700 text-[10px] font-bold px-3 py-1 rounded transition-colors uppercase">Extract Metadata</button>
+</div>
+</div>
+<div class="flex-1 grid grid-cols-1 lg:grid-cols-2 gap-6">
+<div class="relative border-2 border-primary/20 rounded-xl overflow-hidden group">
+<div class="absolute inset-0 bg-cover bg-center" data-alt="Macro view of carbon fiber bike frame" style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuCCxkwah88kLNKkhR6kC6Ayg5ZCudIXiaISixufdYOvaPhsXkCkOtITwqLSvF2wIDH1I065tHWNeX3r8yhktRu6VE7HurA6NkAHt5hbYNiSMrLMrg2KALKqAm_C8ahXjcfFwgFwIqx3I4N3rInhzbh-QTYJN4S1MZuDk_J8EZxFOLquof12bSD8v5ByhzKbmxL3jqS9v9C9fYEsorsvfp1dxEMsOuCIxOb8u19ZwvVPFnDrBUdpV-XSFeVDHLzROqFTn-n9yHGG')"></div>
+<div class="scanner-line"></div>
+<div class="absolute top-10 left-10 w-32 h-20 border-2 border-primary ring-2 ring-primary/20 rounded-sm">
+<div class="absolute -top-6 left-0 bg-primary text-black text-[10px] font-bold px-1.5 py-0.5">AUTHENTICITY_LOGO: 1.0</div>
+</div>
+<div class="absolute bottom-20 right-32 w-24 h-24 border-2 border-accent-amber ring-2 ring-accent-amber/20 rounded-sm">
+<div class="absolute -top-6 left-0 bg-accent-amber text-black text-[10px] font-bold px-1.5 py-0.5">SURFACE_SCRATCH: 0.88</div>
+</div>
+<div class="absolute bottom-4 left-4 right-4 bg-background-dark/80 backdrop-blur-md p-3 rounded-lg border border-primary/10">
+<div class="flex justify-between text-[10px] font-bold text-slate-400 mb-1">
+<span>ANALYZING TEXTURE...</span>
+<span class="text-primary">87% COMPLETE</span>
+</div>
+<div class="w-full bg-slate-800 h-1 rounded-full overflow-hidden">
+<div class="h-full bg-primary w-[87%]"></div>
+</div>
+</div>
+</div>
+<div class="flex flex-col gap-4">
+<div class="bg-background-dark/50 rounded-xl p-4 border border-slate-800">
+<h3 class="text-xs font-bold text-primary uppercase mb-3 flex items-center gap-2">
+<span class="material-symbols-outlined text-sm">analytics</span> Vision Insights
+              </h3>
+<ul class="space-y-3">
+<li class="flex items-start gap-3">
+<span class="material-symbols-outlined text-primary text-sm mt-0.5">check_circle</span>
+<div class="text-xs">
+<p class="font-bold text-slate-100">Carbon Integrity Verified</p>
+<p class="text-slate-400">Structural patterns match OEM specifications for 2022 SL7 model.</p>
+</div>
+</li>
+<li class="flex items-start gap-3">
+<span class="material-symbols-outlined text-accent-amber text-sm mt-0.5">report</span>
+<div class="text-xs">
+<p class="font-bold text-slate-100">Cosmetic Wear Detected</p>
+<p class="text-slate-400">Scratches on bottom bracket area. Estimated repair value: $120.</p>
+</div>
+</li>
+<li class="flex items-start gap-3">
+<span class="material-symbols-outlined text-primary text-sm mt-0.5">verified</span>
+<div class="text-xs">
+<p class="font-bold text-slate-100">Component Validation</p>
+<p class="text-slate-400">SRAM Red eTap AXS drivetrain confirmed. Gear ratio 48/35t.</p>
+</div>
+</li>
+</ul>
+</div>
+<div class="flex-1 bg-background-dark/30 rounded-xl p-4 border border-slate-800 flex flex-col">
+<h3 class="text-xs font-bold text-slate-500 uppercase mb-3">Valuation Engine</h3>
+<div class="flex flex-col gap-4">
+<div class="flex justify-between items-end border-b border-slate-800 pb-2">
+<span class="text-xs text-slate-400">Current Market Price</span>
+<span class="text-xl font-bold">$5,250</span>
+</div>
+<div class="flex justify-between items-end border-b border-slate-800 pb-2">
+<span class="text-xs text-slate-400">Target Acquisition</span>
+<span class="text-xl font-bold text-primary">$4,100</span>
+</div>
+<div class="mt-auto">
+<button class="w-full bg-primary text-background-dark font-bold py-3 rounded-lg flex items-center justify-center gap-2 hover:brightness-110 transition-all">
+<span class="material-symbols-outlined">chat_bubble</span>
+                    INITIATE SNIPER NEGOTIATION
+                  </button>
+</div>
+</div>
+</div>
+</div>
+</div>
+</section>
+<section class="bg-surface border border-slate-800 rounded-2xl flex flex-col overflow-hidden max-h-[350px]">
+<div class="px-6 py-4 border-b border-slate-800 flex items-center justify-between bg-surface/80 backdrop-blur-md">
+<div class="flex items-center gap-3">
+<span class="material-symbols-outlined text-primary">terminal</span>
+<h2 class="text-sm font-bold uppercase tracking-tight">Negotiation Terminal</h2>
+</div>
+<div class="flex items-center gap-4">
+<div class="flex items-center gap-2">
+<span class="h-2 w-2 rounded-full bg-primary"></span>
+<span class="text-[10px] font-bold text-slate-400 uppercase tracking-widest">AI Agent: Active</span>
+</div>
+<div class="h-4 w-[1px] bg-slate-700"></div>
+<span class="text-[10px] text-slate-500 font-mono">ID: SNIP-8821-X</span>
+</div>
+</div>
+<div class="flex-1 overflow-y-auto p-6 space-y-4 bg-background-dark/20 font-mono text-[11px]">
+<div class="flex gap-4">
+<span class="text-slate-500">14:22:01</span>
+<span class="text-primary font-bold">SNIPER_AGENT:</span>
+<span class="text-slate-300">"Hey there! I saw your S-Works listing. Beautiful bike. Are you the original owner? Also, I noticed some marks on the BB shell—are those through the clear coat or just grease?"</span>
+</div>
+<div class="flex gap-4">
+<span class="text-slate-500">14:23:45</span>
+<span class="text-accent-amber font-bold">SELLER_RESPONSE:</span>
+<span class="text-slate-300">"Hey, yeah I bought it new last year. The marks are just typical road debris, not structural. I'm firm on the price though."</span>
+</div>
+<div class="flex gap-4">
+<span class="text-slate-500">14:23:58</span>
+<span class="text-primary font-bold">SNIPER_AGENT:</span>
+<span class="text-slate-300 italic opacity-60">[Thinking: Seller is emphasizing 'firm' too early. Counter with inspection data and immediate cash offer.]</span>
+</div>
+<div class="flex gap-4">
+<span class="text-slate-500">14:24:02</span>
+<span class="text-primary font-bold">SNIPER_AGENT:</span>
+<span class="text-slate-300">"Understood. Given the market for rim-brake models and those cosmetic marks, I could do $4,050 today. No hassle, I'll handle the shipping label and insurance myself. What do you say?"</span>
+</div>
+<div class="flex gap-4">
+<span class="text-slate-500">14:25:12</span>
+<span class="text-accent-amber font-bold">SELLER_RESPONSE:</span>
+<span class="text-slate-300">"Typing..."</span>
+</div>
+</div>
+<div class="px-6 py-4 bg-surface/80 border-t border-slate-800 flex gap-4">
+<input class="flex-1 bg-background-dark border border-slate-700 rounded-lg px-4 py-2 text-xs focus:ring-1 focus:ring-primary focus:outline-none placeholder-slate-600" placeholder="Override Agent manually..." type="text"/>
+<button class="bg-slate-800 px-4 py-2 rounded-lg hover:bg-slate-700 transition-colors">
+<span class="material-symbols-outlined text-sm">send</span>
+</button>
+</div>
+</section>
+</div>
+</main>
+<footer class="bg-surface/30 border-t border-slate-800/50 px-6 py-2 flex justify-between items-center">
+<div class="flex gap-6">
+<div class="flex items-center gap-2">
+<span class="text-[10px] text-slate-500 font-bold uppercase">Uptime</span>
+<span class="text-[10px] text-primary">99.98%</span>
+</div>
+<div class="flex items-center gap-2">
+<span class="text-[10px] text-slate-500 font-bold uppercase">Success Rate</span>
+<span class="text-[10px] text-primary">82%</span>
+</div>
+</div>
+<div class="flex items-center gap-2">
+<span class="material-symbols-outlined text-primary text-xs">shield</span>
+<span class="text-[10px] text-slate-500 font-bold uppercase tracking-widest">Encrypted Terminal Session</span>
+</div>
+</footer>
+</body></html>
