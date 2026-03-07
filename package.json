@@ -9,11 +9,12 @@
   "description": "",
   "devDependencies": {
     "@playwright/test": "^1.56.1",
-    "@types/node": "^24.10.1",
-    "typescript": "^5.9.3"
+    "@types/node": "^22.10.1",
+    "typescript": "^5.7.2"
   },
   "dependencies": {
-    "@modelcontextprotocol/sdk": "^1.24.3",
-    "zod": "^4.1.13"
+    "@google/adk": "^0.2.1",
+    "@modelcontextprotocol/sdk": "^1.17.5",
+    "zod": "^3.25.76"
   }
 }
