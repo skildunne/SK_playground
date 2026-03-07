@@ -1,0 +1,23 @@
+version: "3.8"
+
+services:
+  # PostgreSQL Database Container
+  db:
+    image: postgres:15
+    container_name: sports_exchange_db
+    restart: always
+    environment:
+      # These credentials need to match the DATABASE_URL in your .env file
+      POSTGRES_USER: sports_exchange_user
+      POSTGRES_PASSWORD: secretpassword
+      POSTGRES_DB: sports_exchange
+    ports:
+      # Map container port 5432 to host port 5432
+      - "5432:5432"
+    volumes:
+      # Persist data so it survives container restarts
+      - postgres_data:/var/lib/postgresql/data
+
+volumes:
+  # Define the named volume for PostgreSQL data
+  postgres_data:

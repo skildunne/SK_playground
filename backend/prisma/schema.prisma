@@ -1,0 +1,82 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+// PostgreSQL is commented out for local development in favor of SQLite
+// datasource db {
+//   provider = "postgresql"
+//   url      = env("DATABASE_URL")
+// }
+
+// SQLite is automatically created as a local file, perfect for rapid local dev
+datasource db {
+  provider = "sqlite"
+  url      = "file:./dev.db"
+}
+
+// The User model represents a person on the platform.
+// A user can be both a Buyer and a Seller.
+model User {
+  id               String    @id @default(uuid())
+  email            String    @unique
+  passwordHash     String
+  // In SQLite, enums aren't natively supported, so Prisma maps them to Strings under the hood
+  role             String    @default("BUYER") // Role: BUYER, SELLER, ADMIN
+  stripeAccountId  String?
+  createdAt        DateTime  @default(now())
+  updatedAt        DateTime  @updatedAt
+
+  products         Product[] @relation("SellerProducts")
+  orders           Order[]   @relation("BuyerOrders")
+  messagesSent     Message[] @relation("SenderMessages")
+  messagesReceived Message[] @relation("ReceiverMessages")
+}
+
+// The Product model represents a gear item listed for sale.
+model Product {
+  id          String   @id @default(uuid())
+  title       String
+  description String
+  price       Float
+  condition   String
+  status      String   @default("AVAILABLE") // Status: AVAILABLE, SOLD, HIDDEN
+  imageUrl    String?
+  createdAt   DateTime @default(now())
+  updatedAt   DateTime @updatedAt
+
+  sellerId    String
+  seller      User     @relation("SellerProducts", fields: [sellerId], references: [id])
+  orders      Order[]
+  messages    Message[]
+}
+
+// The Order model tracks transactions between Buyers and Sellers.
+model Order {
+  id                    String      @id @default(uuid())
+  status                String      @default("PENDING") // OrderStatus: PENDING, PAID, SHIPPED, DELIVERED, CANCELLED
+  stripePaymentIntentId String?
+  createdAt             DateTime    @default(now())
+  updatedAt             DateTime    @updatedAt
+
+  buyerId               String
+  buyer                 User        @relation("BuyerOrders", fields: [buyerId], references: [id])
+  productId             String
+  product               Product     @relation(fields: [productId], references: [id])
+}
+
+// The Message model allows Buyers and Sellers to chat about specific products.
+model Message {
+  id         String   @id @default(uuid())
+  content    String
+  createdAt  DateTime @default(now())
+
+  senderId   String
+  sender     User     @relation("SenderMessages", fields: [senderId], references: [id])
+  receiverId String
+  receiver   User     @relation("ReceiverMessages", fields: [receiverId], references: [id])
+  productId  String
+  product    Product  @relation(fields: [productId], references: [id])
+}
+
+// Note: Enums are removed here because SQLite does not support them natively.
+// We are using Strings with default values in the models above instead.
